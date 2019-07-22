@@ -331,8 +331,8 @@ class TfPoseEstimator:
         tf.import_graph_def(graph_def, name='TfPoseEstimator')
         self.persistent_sess = tf.Session(graph=self.graph, config=tf_config)
 
-        for ts in [n.name for n in tf.get_default_graph().as_graph_def().node]:
-            print(ts)
+        # for ts in [n.name for n in tf.get_default_graph().as_graph_def().node]:
+        #     print(ts)
 
         self.tensor_image = self.graph.get_tensor_by_name('TfPoseEstimator/image:0')
         self.tensor_output = self.graph.get_tensor_by_name('TfPoseEstimator/Openpose/concat_stage7:0')
@@ -417,6 +417,11 @@ class TfPoseEstimator:
                     continue
 
                 body_part = human.body_parts[i]
+                face = human.get_face_box(image_w, image_h, mode=0)
+
+                if face is not None:
+                    cv2.rectangle(npimg, (face['x'], face['y']), (face['x'] - face['w'], face['y'] - face['h']),(255, 255, 0), 2)
+
                 center = (int(body_part.x * image_w + 0.5), int(body_part.y * image_h + 0.5))
                 centers[i] = center
                 cv2.circle(npimg, center, 3, common.CocoColors[i], thickness=3, lineType=8, shift=0)

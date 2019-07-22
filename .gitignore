@@ -105,7 +105,7 @@ ENV/
 *.npy
 timeline*.json
 
-# project customs 
+# project customs
 tmp
 models/graph/cmu*/*.pb
 models/trained/*/checkpoint
@@ -118,3 +118,6 @@ models/pretrained/resnet_v2_101/train.graph
 src/pafprocess/pafprocess.py
 src/pafprocess/pafprocess_wrap.cpp
 src/pafprocess/pafprocess_wrap.cxx
+
+# video
+*.avi

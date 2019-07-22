@@ -34,7 +34,7 @@ if __name__ == '__main__':
     parser.add_argument('--model', type=str, default='mobilenet_thin', help='cmu / mobilenet_thin / mobilenet_v2_large / mobilenet_v2_small')
     parser.add_argument('--show-process', type=bool, default=False,
                         help='for debug purpose, if enabled, speed for inference is dropped.')
-    
+
     parser.add_argument('--tensorrt', type=str, default="False",
                         help='for tensorrt process.')
     args = parser.parse_args()
