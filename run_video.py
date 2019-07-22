@@ -3,6 +3,7 @@ import logging
 import time
 
 import cv2
+import socketio
 import numpy as np
 
 from tf_pose.estimator import TfPoseEstimator
@@ -17,6 +18,8 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 fps_time = 0
+sio = socketio.Client()
+# sio.connect('http://localhost:5000')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='tf-pose-estimation Video')
