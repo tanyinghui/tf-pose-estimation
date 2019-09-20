@@ -183,7 +183,7 @@ class Human:
         part_coords = [(img_w * part.x, img_h * part.y) for part in parts if
                        part.part_idx in [0, 1, 2, 5, 8, 11, 14, 15, 16, 17]]
 
-        if len(part_coords) < 5:
+        if len(part_coords) < 4:
             return None
 
         # Initial Bounding Box
@@ -418,7 +418,7 @@ class TfPoseEstimator:
 
                 body_part = human.body_parts[i]
                 face = human.get_face_box(image_w, image_h, mode=0)
-
+                # print(face)
                 if face is not None:
                     cv2.rectangle(npimg, (face['x'], face['y']), (face['x'] - face['w'], face['y'] - face['h']),(255, 255, 0), 2)
 
