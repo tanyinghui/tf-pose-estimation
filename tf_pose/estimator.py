@@ -428,6 +428,7 @@ class TfPoseEstimator:
 
             # draw line
             for pair_order, pair in enumerate(common.CocoPairsRender):
+#                 print(human.body_parts.keys())
                 if pair[0] not in human.body_parts.keys() or pair[1] not in human.body_parts.keys():
                     continue
 
